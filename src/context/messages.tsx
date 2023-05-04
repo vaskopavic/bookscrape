@@ -10,6 +10,7 @@ const defaultValue = [
     isUserMessage: false,
   },
 ];
+
 export const MessagesContext = createContext<{
   messages: Message[];
   isMessageUpdating: boolean;
