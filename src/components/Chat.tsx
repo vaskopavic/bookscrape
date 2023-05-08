@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -18,13 +20,13 @@ const Chat: React.FC = () => {
       <AccordionItem value="item-1">
         <div className="fixed overflow-hidden bg-white border border-gray-200 rounded-md right-8 w-80 bottom-8">
           <div className="flex flex-col w-full h-full">
-            <AccordionTrigger className="px-6 border-b border-zinc300">
+            <AccordionTrigger className="px-6 border-b border-zinc-300">
               <ChatHeader />
             </AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col h-80">
                 <ChatMessages className="flex-1 px-2 py-3" />
-                <ChatInput className="px-4 " />
+                <ChatInput className="px-4" />
               </div>
             </AccordionContent>
           </div>

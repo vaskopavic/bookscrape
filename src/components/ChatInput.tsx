@@ -26,13 +26,13 @@ const ChatInput: React.FC<ChatInputProps> = ({ className, ...props }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const { mutate: sendMessage, isLoading } = useMutation({
-    mutationFn: async (message: Message) => {
+    mutationFn: async (_message: Message) => {
       const response = await fetch("/api/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ messages: [message] }),
+        body: JSON.stringify({ messages }),
       });
 
       if (!response.ok) {

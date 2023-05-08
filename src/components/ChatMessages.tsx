@@ -21,34 +21,36 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ className, ...props }) => {
       )}
     >
       <div className="flex-1 flex-grow" />
-      {inverseMessages.map((message) => (
-        <div key={message.id} className="chat-message">
-          <div
-            className={cn("flex items-end", {
-              "justify-end": message.isUserMessage,
-            })}
-          >
+      {inverseMessages.map((message) => {
+        return (
+          <div className="chat-message" key={`${message.id}-${message.id}`}>
             <div
-              className={cn(
-                "flex flex-col space-y-2 text-sm max-w-xs mx-2 overflow-x-hidden",
-                {
-                  "order-1 items-end": message.isUserMessage,
-                  "order-2 items-start": !message.isUserMessage,
-                }
-              )}
+              className={cn("flex items-end", {
+                "justify-end": message.isUserMessage,
+              })}
             >
-              <p
-                className={cn("px-4 py-2 rounded-lg", {
-                  "bg-blue-600 text-white": message.isUserMessage,
-                  "bg-gray-200 text-gray-900": !message.isUserMessage,
-                })}
+              <div
+                className={cn(
+                  "flex flex-col space-y-2 text-sm max-w-xs mx-2 overflow-x-hidden",
+                  {
+                    "order-1 items-end": message.isUserMessage,
+                    "order-2 items-start": !message.isUserMessage,
+                  }
+                )}
               >
-                <MarkdownLite text={message.text} />
-              </p>
+                <p
+                  className={cn("px-4 py-2 rounded-lg", {
+                    "bg-blue-600 text-white": message.isUserMessage,
+                    "bg-gray-200 text-gray-900": !message.isUserMessage,
+                  })}
+                >
+                  <MarkdownLite text={message.text} />
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
